@@ -1,0 +1,133 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int i,j;
+
+void check(int set[10],int ck[10],int *n,int m)
+{
+	int l=0;
+	for(i=0;i<m;i++)
+	{	for(j=(i+1);j<m;j++)
+			if(set[i]==set[j])
+				break;
+		if(set[i]!=set[j])
+		{
+			ck[l]=set[i];
+			l++;
+		}
+	}
+	*n=l;
+}
+
+void showSet(int n,int set[10],char k[20])
+{
+	printf("\nSet %s : { ",k);
+	for(i=0;i<n;i++)
+		printf("%d ",set[i]);
+	printf("}");
+}
+
+void unionSet(int a[10],int b[10],int c[20],int n1,int n2,int *n3)
+{
+	int m=0;
+	for(i=0;i<n1;i++)
+		c[i] = a[i];
+	for(i=0;i<n2;i++)
+	{	for(j=0;j<n1;j++)
+			if(b[i]==a[j])
+				break;
+		if(b[i]!=a[j])
+		{	c[n1+m]=b[i];
+			m++;
+		}
+	}
+	*n3=n1+m;
+}
+
+void interSet(int a[10],int b[10],int d[20],int n1,int n2,int *n4)
+{
+	int m=0;
+	for(i=0;i<n2;i++)
+		for(j=0;j<n1;j++)
+		{	if(b[i]==a[j])
+			{	d[m]=b[i];
+				m++;
+			}
+		}
+	*n4=m;
+}
+
+void differSet(int a[10],int b[10],int set[20],int n1,int n2,int *n)
+{
+	int m=0;
+	for(i=0;i<n2;i++)
+	{	for(j=0;j<n1;j++)
+			if(b[i]==a[j])
+				break;
+		if(b[i]!=a[j])
+		{	set[m]=b[i];
+			m++;
+		}
+	}
+	*n=m;
+}
+
+int main(void)
+{
+	int ch;
+	int n1,n2,a[10],b[10];
+	int ck1[10],ck2[10],cn1,cn2;
+	int c[20],n3;
+	int d[20],n4;
+	int e[20],f[20],en,fn;
+	int g[20],gn;
+	do
+	{	printf("\n\nMenu :\n1. Get Sets\n2. Display Sets\n3. Union\n4. Intersection\n5. Difference\n6. Symmetric Difference\n7. Exit\n\nEnter your choice :");
+		scanf("%d",&ch);
+		switch(ch)
+		{
+		case 1: printf("\nEnter no. of elements in set A :");
+				scanf("%d",&cn1);
+				printf("Enter the elements of set A :\n");
+				for(i=0;i<cn1;i++)
+					scanf("%d",&ck1[i]);
+				printf("\nEnter no. of elements in set B :");
+				scanf("%d",&cn2);
+				printf("Enter the elements of set B :\n");
+				for(j=0;j<cn2;j++)
+					scanf("%d",&ck2[j]);
+				check(ck1,a,&n1,cn1);
+				check(ck2,b,&n2,cn2);
+		        break;
+
+		case 2: showSet(n1,a,"A");
+				showSet(n2,b,"B");
+				break;
+
+		case 3: unionSet(a,b,c,n1,n2,&n3);
+				showSet(n3,c,"Union(A,B)");
+				break;
+
+		case 4: interSet(a,b,d,n1,n2,&n4);
+				showSet(n4,d,"Intersection(A,B)");
+				break;
+
+		case 5: differSet(a,b,e,n1,n2,&en);
+				showSet(en,e,"Difference(B - A)");
+				differSet(b,a,f,n2,n1,&fn);
+				showSet(fn,f,"Difference(A - B)");
+				break;
+
+		case 6: unionSet(e,f,g,en,fn,&gn);
+				showSet(gn,g,"Symmetric Difference(A,B)");
+				break;
+
+		case 7: return 0;
+
+		default : printf("\nEnter Choice between 1 to 7 ...!!\n");
+
+		}
+	}while(ch!=7);
+	return 0;
+}

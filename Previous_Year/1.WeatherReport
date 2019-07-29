@@ -1,0 +1,126 @@
+#include <iostream>
+using namespace std;
+
+class WeatherReport
+{
+	private :	int i,j;
+				static float sumTempH,sumTempL,sumRain,sumSnow;
+				float day,lowTemp,highTemp,rain,snow;
+
+	public :	WeatherReport()
+				{
+					i=0;j=0;
+					day = 99;
+					lowTemp = -999;
+					highTemp = 999;
+					rain = 0.0;
+					snow = 0.0;
+				}
+
+				WeatherReport(int d,float ht,float lt,float r,float s)
+				{
+					i=0;j=0;
+					lowTemp = lt;
+					highTemp = ht;
+					day = d;
+					rain = r;
+					snow = s;
+				}
+
+				void getValue(WeatherReport wrt[30],int n)
+				{	int a=n;float b,c,d,e;
+					cout<<"\nDay : "<<a<<endl;
+					do{
+					cout<<"High Temperature : ";
+					cin>>b;
+					cout<<"Low Temperature : ";
+					cin>>c;
+					if(b<c)
+						cout<<"\nEntered Low Temperature is Greater than High Temperature..!!\n";
+					}while(b<c);
+					cout<<"Amount of Rain : ";
+					cin>>d;
+					cout<<"Amount of Snow : ";
+					cin>>e;
+					wrt[n-1]=WeatherReport(a,b,c,d,e);
+				}
+
+				void showValue()
+				{
+					cout<<endl<<day<<"\t\t"<<highTemp<<"\t\t"<<lowTemp<<"\t\t\t"<<rain<<"\t\t"<<snow<<endl;
+				}
+
+				void calcSum()
+				{
+					if(day!=99)
+					{	sumTempH+=highTemp;
+						sumTempL+=lowTemp;
+						sumRain+=rain;
+						sumSnow+=snow;
+					}
+				}
+				void display(int m)
+				{
+					cout<<"\nAverage High Temperature = "<<sumTempH/m;
+					cout<<"\nAverage Low Temperature = "<<sumTempL/m;
+					cout<<"\nAverage Rain = "<<sumRain/m;
+					cout<<"\nAverage Snow = "<<sumSnow/m<<endl;
+				}
+
+				static void reset()
+				{
+					sumTempH=0;
+					sumTempL=0;
+					sumRain=0;
+					sumSnow=0;
+				}
+};
+
+float WeatherReport::sumTempH;
+float WeatherReport::sumTempL;
+float WeatherReport::sumRain;
+float WeatherReport::sumSnow;
+
+int main()
+{
+	int i=0,ch,n,m=0;
+	WeatherReport w[30];
+	do
+	{	cout<<"\nMenu Weather Report :\n1. Enter New Values.\n2. Show Values.\n3. Show Average.\n4. Exit.\nEnter your choice : ";
+		cin>>ch;
+		switch(ch)
+		{
+			case 1:	cout<<"\nType 0 when finished";
+					do
+					{	cout<<"\nEnter Day of Month : ";
+						cin>>n;
+						if(n==0)
+							break;
+						if((n<0)||(n>30))
+						{
+							cout<<"\nEnter Day Between 1 and 30..!!\n";
+							continue;
+						}
+						w[n-1].getValue(w,n);
+						if((n>0)&&(n<31))
+							m++;
+					}while(n!=0);
+					break;
+			case 2:	cout<<"\nMonthly Weather Report :\nDay\tHigh Temperature\tLow Temperature\t\tRain\t\tSnow\n";
+					for(i=0;i<30;i++)
+						w[i].showValue();
+					break;
+			case 3:	w[0].reset();
+					for(i=0;i<30;i++)
+					{
+						w[i].calcSum();
+					}
+					w[0].display(m);
+					break;
+			case 4:	return 0;
+			default:cout<<"\nEnter valid choice (1-4)...!!!\n";
+		}
+	}while(ch!=0);
+	return 0;
+}
+

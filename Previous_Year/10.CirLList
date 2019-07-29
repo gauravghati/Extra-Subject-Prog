@@ -1,0 +1,91 @@
+/*
+------------------------------------------------------------
+Roll No.          : 23307
+Batch             : E-11
+Problem Statement : Create a singly linked list with options:
+					a) Insert (at front, at end, in the middle),
+					b) Delete (at front, at end, in the middle),
+					c) Display,
+					d) Display Reverse,
+					e) Revert the SLL
+------------------------------------------------------------
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define lim 50
+
+typedef struct
+{
+	int pow;
+	float coeff;
+	struct Node *link;
+}Node;
+
+Node* getPoly(int t){
+
+	int i;
+	Node *head = NULL, *p;
+
+	printf("\nEnter terms one by one.\n");
+	p = (Node*)malloc(sizeof(Node));
+	printf("\nTerm 1 :-\n  Coefficient = ");
+	scanf("%f", p->coeff);
+	printf("Degree = ");
+	scanf("%d", p->pow);
+	p->link = NULL;
+
+	head = p;
+
+	for(i=0; i<t-1; i++)
+	{
+		p->link = (Node*)malloc(sizeof(Node));
+		printf("\nTerm %d :-\n  Coefficient = ", i+2);
+		scanf("%f", p->coeff);
+		printf("Degree = ");
+		scanf("%d", p->pow);
+		p->link = NULL;
+	}
+
+	return head;
+}
+
+int main() {
+	int ch, t1, t2;
+	Node *head1 = NULL;
+	Node *head2 = NULL;
+
+	do
+	{
+		printf("\nMenu :\n1. Get two Polynomials.\n2. Display.\n3. Addition.\n4. Multiplication.\n5. Validation.\n6. Exit.\nEnter your choice : ");
+		scanf("%d",&ch);
+		switch(ch)
+		{
+			case 1: printf("\nGET POLYNOMIALS :\n\nPolnomial 1 :-\nEnter number of terms : ");
+				scanf("%d", &t1);
+				head1 = getPoly(t1);
+				
+				printf("\nPolnomial 2 :-\nEnter number of terms : ");
+				scanf("%d", &t2);
+				head2 = getPoly(t2);
+				
+				break;
+
+			case 2: printf("\nGET POLYNOMIALS :\n);
+				break;
+			
+			case 3: break;
+			
+			case 4: break;
+			
+			case 5: break;
+			
+			case 6: break;
+
+			default:printf("\nEnter Choice Between 1 - 6 Only..!!\n");
+		}
+	}while(ch!=6);
+
+	return 0;
+}

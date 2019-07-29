@@ -1,0 +1,233 @@
+//Roll No. : 23307
+//Batch    : E-11
+
+#include <stdio.h>
+#include <stdlib.h>
+#define max 50
+#define lim 25
+#define ll line(92);
+
+void line(int n)
+{
+	int i;
+	printf("\n");
+	for(i=0;i<n;i++)
+		printf("-");
+	printf("\n");
+}
+
+struct Student
+{
+	int roll;
+	char name[max];
+	int age;
+	long long int contact;
+	float percent;
+}S[lim];
+
+int checkRoll(int t)		//Check if Roll No. is Unique
+{
+	int i;
+	for(i=0;i<t;i++)
+		if(S[i].roll==S[t].roll)
+			return 1;
+	return 0;
+}
+
+void getData(int t)			//Get Data
+{
+	printf("\nStudent %d :",t+1);
+	do
+	{
+		printf("\nUnique Roll No. : ");
+		scanf("%d",&S[t].roll);
+		if(checkRoll(t))
+			printf("\nEntered Roll No. Already Exists");
+	}while(checkRoll(t));
+	printf("Name : ");
+	while(getc(stdin)!='\n');
+	gets(&S[t].name);
+	printf("Age : ");
+	scanf("%d",&S[t].age);
+	printf("Mobile No. : ");
+	do
+	{
+		scanf("%lld",&S[t].contact);
+		if((S[t].contact<1000000000)||(S[t].contact>9999999999))
+			printf("Enter CORRECT 10 Digit Mobile No. !!\n");
+	}while((S[t].contact<1000000000)||(S[t].contact>9999999999));
+	printf("Percentage : ");
+	do
+	{
+		scanf("%f",&S[t].percent);
+		if((S[t].percent<0)||(S[t].percent>100))
+			printf("Enter CORRECT Percentage !!\n");
+	}while((S[t].percent<0)||(S[t].percent>100));
+}
+
+void showData(int j)			//Displaying Data
+{
+	printf("\n %5d\t\t\t%s\t\t\t%d\t%10lld\t%2f",S[j].roll,S[j].name,S[j].age,S[j].contact,S[j].percent);
+}
+
+int search(int sch,int t)		//Search Data of Entered Roll No.
+{
+	int r;
+	for(r=0;r<t;r++)
+	{
+		if(sch==S[r].roll)
+			return r;
+	}
+	return -1;
+}
+
+void modify(int d,int t)
+{
+	int ch1;
+	do{
+			printf("\nModify :\n  1. Name\n  2. Age\n  3. Mobile No.\n  4. Percentage\n  5. None\nEnter choice you want to modify : ");
+			scanf("%d",&ch1);
+			switch(ch1)
+			{
+				case 1:	printf("\nEnter Name : ");
+						while(getc(stdin)!='\n');
+						gets(&S[d].name);
+						break;
+
+				case 2: printf("Enter Age : ");
+						scanf("%d",&S[d].age);
+						break;
+
+				case 3:	printf("Enter Mobile No. : ");
+						do
+						{
+							scanf("%lld",&S[d].contact);
+							if((S[d].contact<1000000000)||(S[d].contact>9999999999))
+								printf("Enter CORRECT 10 Digit Mobile No. !!\n");
+						}while((S[d].contact<1000000000)||(S[d].contact>9999999999));
+						break;
+
+				case 4:	printf("Enter Percentage : ");
+						do
+						{
+							scanf("%f",&S[t].percent);
+							if((S[d].percent<0)||(S[d].percent>100))
+								printf("Enter CORRECT Percentage !!\n");
+						}while((S[d].percent<0)||(S[d].percent>100));
+						break;
+
+				case 5:	printf("\nData Modified Successfully..!!");
+						break;
+
+				default:printf("\nEnter Choice Between 1 - 5 Only..!!\n");
+			}
+		}while(ch1!=5);
+}
+
+int deleteData(int del,int t)		//Delete Data
+{
+	int i;
+	int d = search(del,t);
+	if(d!=-1)
+	{
+		printf("\nUnique Roll No.\t\tName of Student\t\tAge\tContact No.\tPercentage");
+		showData(d);
+		for(i=d;i<(t-1);i++)
+			S[i]=S[i+1];
+	}
+	return d;
+}
+
+int main()
+{
+	int ch,flag,n,t=0,sch,md,d,i,del;			//Declarations
+
+	do
+	{
+		printf("\nMenu :\n1. Create Data Base.\n2. Add Student Data.\n3. Show All Data.\n4. Search Data.\n5. Modify Data.\n6. Delete Data.\n7. Exit.\nEnter your choice : ");
+		scanf("%d",&ch);
+		switch(ch)
+		{
+			case 1:	printf("\nEnter no. of students : ");
+					scanf("%d",&n);
+					t=n;
+					for(i=0;i<t;i++)
+						getData(i);
+					break;
+
+			case 2:	getData(t);
+					t++;
+					break;
+
+			case 3:	if(t!=0)
+					{	printf("\nDATA BASE :");
+						ll
+						printf("\nUnique Roll No.\t\tName of Student\t\tAge\tContact No.\tPercentage");
+						ll
+						for(i=0;i<t;i++)
+							showData(i);
+						printf("\n");
+						ll
+					}
+					else
+						printf("\nEnter Data First..!!\n");
+					break;
+
+			case 4:	if(t!=0)
+					{	printf("\nSEARCH\nEnter Roll No. : ");
+						scanf("%d",&sch);
+						d=search(sch,t);
+						printf("\nSEARCH RESULT :");
+						if(d!=-1)
+						{
+							printf("\nUnique Roll No.\t\tName of Student\t\tAge\tContact No.\tPercentage");
+							showData(d);
+						}
+						else
+							printf("\nData NOT Found !");
+					}
+					else
+						printf("\nEnter Data First..!!\n");
+					break;
+
+			case 5:	if(t!=0)
+					{	printf("\nMODIFY\nEnter Roll No. : ");
+						scanf("%d",&md);
+						d=search(md,t);
+						if(d!=-1)
+						{
+							printf("\nUnique Roll No.\t\tName of Student\t\tAge\tContact No.\tPercentage");
+							showData(d);
+							modify(d,t);
+						}
+						else
+							printf("\nData NOT Found !");
+					}
+					else
+						printf("\nEnter Data First..!!\n");
+					break;
+
+			case 6:	if(t!=0)
+					{	printf("\nDELETE");
+						printf("\nUnique Roll No. : ");
+						scanf("%d",&del);
+						flag = deleteData(del,t);
+						if(flag!=-1)
+						{
+							printf("\nData DELETED Successfully..!!\n");
+							t--;
+						}
+						else
+							printf("\nData NOT Found !");
+					}
+					else
+						printf("\nEnter Data First..!!\n");
+					break;
+
+			case 7:	return 0;
+
+			default:printf("\nEnter Choice Between 1 - 6 Only..!!\n");
+		}
+	}while(ch!=7);
+	return 0;
+}
