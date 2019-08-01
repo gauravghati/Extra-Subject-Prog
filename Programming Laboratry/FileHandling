@@ -5,7 +5,7 @@
  Version     :
  Copyright   : Your copyright notice
  Description : Hello World in C, Ansi-style
-=============================================================================
+
 
 THEORY :
 
@@ -37,11 +37,13 @@ File opening modes in C:
            If the file doesn’t exist, a new file is created. Returns NULL,
            if unable to open file.
 
+Opening of File -
+
 		FILE *filePointer;
 		So, the file can be opened as
 		filePointer = fopen(“fileName.txt”, “w”)
 
-Reading from a file –
+Reading from a file -
 
         FILE * filePointer;
 		filePointer = fopen(“fileName.txt”, “r”);
@@ -49,7 +51,7 @@ Reading from a file –
 
 Closing a file-
 
-		FILE *filePointer ;
+		FILE *filePointer ;–
 		filePointer= fopen(“fileName.txt”, “w”);
 		---------- Some file Operations -------
 		fclose(filePointer)
@@ -71,17 +73,24 @@ Reading from file:
             // Print the dataToBeRead
             printf( "%s" , dataToBeRead ) ;
          }
+
  ============================================================================
  */
 
-
+/*  Code for Adding  sentence into the  newFile.txt file
+ *  The Pointer will be set to starting point of the file
+ *  So, it will start writing things from beginning
+ *  It will create a file if the file doesn't exist
+ *  else it will open the existing file */
 
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
 
 int main(void) {
-    FILE *outFile, *inFile;
-    
-    
-	return 0;
+    FILE *outFile;
+    char dataToBeWritten[1000] = "Searches file. If the file is opened successfully fopen loads it into memory and sets up a pointer that points to the last character in it. If the file doesn’t exist, a new file is created. Returns NULL, if unable to open file.";
+    outFile = fopen("newTXT.txt", "w");
+    fputs(dataToBeWritten, outFile) ;
+    fputs("\n", outFile) ;
+    return 0;
 }
