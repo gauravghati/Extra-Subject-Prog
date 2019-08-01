@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(void){
+    FILE *filePointer;
+    char dataToBeRead[1000];
+    filePointer = fopen("newTXT.txt", "r");
+    while( fgets ( dataToBeRead, 50, filePointer ) != NULL ){
+		printf( "%s" , dataToBeRead ) ;
+    }
+	return 0;
+}
+
