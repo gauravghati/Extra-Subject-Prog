@@ -18,16 +18,20 @@ Problem Statement : Implement Sequential File
 
 #define ll line(55);
 
-void line(int n){							//For horizontal line of table
+void line(int n)		//For horizontal line of table
+{
 	int i;
 	for(i=0;i<n;i++)
-	     printf("-");
+		printf("-");
 	printf("\n");
 }
 
-void tabHead(){
+void tabHead()          //For Table Tittles or Headings
+{
+	ll
 	printf("\nRoll No.\tName\t\tAge\tPercentage\n");
 	printf("\n");
+	ll
 }
 
 int checkRoll(int r)        //Checking Roll No. for its Uniqueness
@@ -46,7 +50,8 @@ int checkRoll(int r)        //Checking Roll No. for its Uniqueness
     return 0;
 }
 
-void display(){                    //Display Record
+void display()          //Display Record
+{
     FILE *fp;
     char name[50];
     int age, roll;
@@ -59,7 +64,8 @@ void display(){                    //Display Record
     fclose(fp);
 }
 
-void addData(){   //Add a Record
+void addData()             //Add a Record
+{
     FILE *fp;
     char name[50];
     int age, roll;
@@ -93,7 +99,8 @@ void addData(){   //Add a Record
     fclose(fp);
 }
 
-void searchData(){			   //Search Function
+void searchData()           //Search Function
+{
     FILE *fp;
     char name[50];
     int age, roll;
@@ -127,7 +134,8 @@ void searchData(){			   //Search Function
     fclose(fp);
 }
 
-void modifyData(){           //Modify or Edit Record
+void modifyData()           //Modify or Edit Record
+{
     FILE *fp, *fnew;
     char name[50];
     int age, roll;
@@ -205,7 +213,8 @@ void modifyData(){           //Modify or Edit Record
     rename("F2.txt","F1.txt");
 }
 
-void deleteData(){           //Delete Function to delete a Record
+void deleteData()           //Delete Function to delete a Record
+{
     FILE *fp, *fnew;
     char name[50];
     int age, roll;
