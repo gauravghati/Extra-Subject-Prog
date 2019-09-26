@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/Strings.dir/main.cpp.o  -o Strings 
