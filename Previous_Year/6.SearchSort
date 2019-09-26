@@ -1,22 +1,3 @@
-/*
-------------------------------------------------------------
-Roll No.          : 23307
-Batch             : E-11
-Problem Statement : Accept Student Information (Roll No.,
-					Name, etc...)
-					a) Display data in ascending order of
-					   Roll No. (Bubble Sort).
-					b) Display data in descending order of
-					   Name (Selection Sort).
-					c) Display data for Roll No. satisfied
-					   by the user (Binary Search Without
-					   Recursion).
-					d) Display number of passes and
-					   different test cases. (Worst, Average
-					   and Best Case).
-------------------------------------------------------------
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

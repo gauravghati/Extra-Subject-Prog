@@ -9,14 +9,6 @@ int main(){
   /* NON-CONTINOUS MEMORY ALLOCATION  */
 
   printf("%d",MAX);
-
-
   
-  //changes
-
-
-
-  //change2
-
-
+  
 }
