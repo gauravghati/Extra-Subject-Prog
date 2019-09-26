@@ -6,11 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/gauravghati/C_CPP/Practice-C-CPP/CLionProjects/Strings/main.cpp
+/home/gauravghati/C_CPP/Practice-C-CPP/CLionProjects/Math/main.cpp
 iostream
 -
-string
--
-algorithm
+cmath
 -
 

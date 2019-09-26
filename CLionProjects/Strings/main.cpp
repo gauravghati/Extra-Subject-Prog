@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 using namespace std;
 
 int main() {
@@ -24,6 +25,9 @@ int main() {
 
     cout<<"After swap :\nFirst String : "<<first_string<<endl;
     cout<<"Second string : "<<sec_string<<endl;
+
+    reverse(first_string.begin(), first_string.end());
+    cout<<"Reversed First String :"<<first_string;
 
     cout<<"\nEnter a line: ";
     string third_string;
