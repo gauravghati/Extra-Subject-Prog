@@ -37,3 +37,19 @@ int main() {
 
     return 0;
 }
+
+// OUTPUT :
+
+// Hey, I am Batman
+// and i am from PICT
+// Jey, I am Batman
+// After push_back from first string :Jey, I am Batmans
+// After pop_back from the string :Jey, I am Batman
+// Length of the String :16
+// After swap :
+// First String : and i am from PICT
+// Second string : Jey, I am Batman
+// Reversed First String :TCIP morf ma i dna
+// Enter a line: Hey How are you
+//
+// Your Line : Hey How are you

@@ -25,22 +25,22 @@ int main() {
 
     v1.pop_back();
 
-    cout<< "v1 : " << endl;
+    cout<< "v1 : ";
     for(auto i : v1){
-        cout<< i << endl;
-    }
+        cout<< i << " ";
+    } cout << "\n";
 
     cout << "--------------------------------\n";
-    cout<< "v2 : " << endl;
+    cout<< "v2 : ";
     for(auto i : v2){
-        cout<< i << endl;
-    }
+        cout<< i << " ";
+    } cout << "\n";
 
     cout << "--------------------------------\n";
 
     for(int i = 0; i < v1.size(); i++){
-        cout << v1[i] << endl;
-    }
+        cout << v1[i] << " ";
+    } cout << "\n";
 
     cout<<"front Element = " << v1.front() << endl;
     cout << "back Element = " << v1.back() << endl;
@@ -74,3 +74,21 @@ int main() {
 
     return 0;
 }
+
+
+// OUTPUT :
+
+// Vector is not empty
+// v1 : 3 4 5 6 7 8 9 10 11 12
+// --------------------------------
+// v2 : 12 11 10 9 8 7 6 5 4 3
+// --------------------------------
+// 3 4 5 6 7 8 9 10 11 12
+// front Element = 3
+// back Element = 12
+// After erase() : 3 4 6 7 8 9 10 11 12
+// After Swap :
+// v1 : 12 11 10 9 8 7 6 5 4 3
+// v2 : 3 4 6 7 8 9 10 11 12
+// After Inserting 3 in begin : 3 12 11 10 9 8 7 6 5 4 3
+// Size after clear : 0

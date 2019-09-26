@@ -52,5 +52,18 @@ int main() {
 
     return 0;
 }
+/*
+OUTPUT :
 
+Vector : 3 5 1 6 8 9 2 65 4 3 34 4 7 4
+Vector after swap : 1 2 3 3 4 4 4 5 6 7 8 9 34 65
+Vector After Erase 2 : 1 3 3 4 4 4 5 6 7 8 9 34 65
+Max Element : 65
+Min Element : 1
+Vector After Reverse : 65 34 9 8 7 6 5 4 4 4 3 3 1
+Count of 4 in the list : 3
+Element 5 Found
+Binary Search : Found 5 element
+Vector After Deleting  duplicated element : 65 34 9 8 7 6 5 4 3 1
 
+*/

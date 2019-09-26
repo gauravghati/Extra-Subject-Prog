@@ -44,3 +44,17 @@ int main() {
 
     return 0;
 }
+
+/*
+OUTPUT  :
+
+Size : 10
+top : 12
+Stack is : 12 11 10 9 8 7 6 5 4 3
+Size : 10
+top : 14
+Stack is : 14 13 12 11 10 9 8 7 6 5
+Swaped String :
+Stack is : 14 13 12 11 10 9 8 7 6 5
+Stack is : 12 11 10 9 8 7 6 5 4 3
+*/
