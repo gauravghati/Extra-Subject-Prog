@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 int main() {
@@ -51,7 +53,6 @@ int main() {
 
     v1.swap(v2);
 
-
     cout<<"After Swap : \nv1 : ";
     for(auto i : v1){
         cout << i << " ";
@@ -62,8 +63,14 @@ int main() {
         cout << i << " ";
     } cout << "\n";
 
+    cout<< " After Inserting 3 in begin : ";
+    auto it = v1.insert(v1.begin(), 3);
+    for(auto it = v1.begin(); it != v1.end(); ++it)
+        cout << *it << " ";
+    cout << "\n";
+
     v1.clear();
-    cout << v1.size() << endl;
+    cout << "Size after clear : " << v1.size() << endl;
 
     return 0;
 }

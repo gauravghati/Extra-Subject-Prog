@@ -7,6 +7,10 @@
 #IncludeRegexTransform: 
 
 /home/gauravghati/C_CPP/Practice-C-CPP/CLionProjects/vector/main.cpp
-bits/stdc++.h
+iostream
+-
+vector
+-
+algorithm
 -
 
