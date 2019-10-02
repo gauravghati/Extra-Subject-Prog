@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/cc04.dir/main.cpp.o  -o cc04 
