@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/codechef01.dir/main.cpp.o  -o codechef01 

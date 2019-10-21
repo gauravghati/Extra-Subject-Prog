@@ -1,3 +1,0 @@
-/home/gauravghati/C_CPP/Practice-C-CPP/CLionProjects/codechef01/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/gauravghati/C_CPP/Practice-C-CPP/CLionProjects/codechef01/cmake-build-debug/CMakeFiles/codechef01.dir
-/home/gauravghati/C_CPP/Practice-C-CPP/CLionProjects/codechef01/cmake-build-debug/CMakeFiles/edit_cache.dir

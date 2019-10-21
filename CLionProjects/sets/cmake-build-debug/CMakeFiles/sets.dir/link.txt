@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/sets.dir/main.cpp.o  -o sets 
