@@ -10,7 +10,7 @@ int main(){
     int t;
     cin >> t;
     while(t--){
-    	// write your code here.
+    	
     	
     	
     	
