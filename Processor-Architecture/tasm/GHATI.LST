@@ -1,0 +1,60 @@
+Turbo Assembler	 Version 2.0	    12/18/19 08:53:55	    Page 1
+ghati.asm
+
+
+
+      1				     ;-----------------------------------------------------
+      2	0000				       .MODEL SMALL
+      3	0000				       .STACK 64
+      4	0000				       .DATA
+      5	0000  00AF		     FLDD      DW	   175
+      6	0002  0096		     FLDE      DW	   150
+      7	0004  ????		     FLDF      DW	   ?
+      8				     ;-----------------------------------------------------
+      9	0006				       .CODE
+     10	0000			     MAIN      PROC	FAR
+     11	0000  B8 0000s			       MOV	AX, @data
+     12	0003  8E D8			       MOV	DS, AX
+     13
+     14	0005  A1 0000r			       MOV	AX, FLDD
+     15	0008  03 06 0002r		       ADD	AX, FLDE
+     16	000C  A3 0004r			       MOV	FLDF, AX
+     17
+     18	000F  B8 4C00			       MOV     AX, 4C00H
+     19	0012  CD 21			       INT     21H
+     20
+     21	0014			     MAIN      ENDP
+     22					       END  MAIN
+Turbo Assembler	 Version 2.0	    12/18/19 08:53:55	    Page 2
+Symbol Table
+
+
+
+
+Symbol Name			  Type	 Value
+
+??DATE				  Text	 "12/18/19"
+??FILENAME			  Text	 "ghati	  "
+??TIME				  Text	 "08:53:55"
+??VERSION			  Number 0200
+@CODE				  Text	 _TEXT
+@CODESIZE			  Text	 0
+@CPU				  Text	 0101H
+@CURSEG				  Text	 _TEXT
+@DATA				  Text	 DGROUP
+@DATASIZE			  Text	 0
+@FILENAME			  Text	 GHATI
+@MODEL				  Text	 2
+@WORDSIZE			  Text	 2
+FLDD				  Word	 DGROUP:0000
+FLDE				  Word	 DGROUP:0002
+FLDF				  Word	 DGROUP:0004
+MAIN				  Far	 _TEXT:0000
+
+Groups & Segments		  Bit Size Align  Combine Class
+
+DGROUP				  Group
+  STACK				  16  0040 Para	  Stack	  STACK
+  _DATA				  16  0006 Word	  Public  DATA
+_TEXT				  16  0014 Word	  Public  CODE
+
