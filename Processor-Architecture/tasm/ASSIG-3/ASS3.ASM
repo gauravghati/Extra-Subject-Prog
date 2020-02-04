@@ -1,4 +1,4 @@
-disp macro var
+disp macro var						; micro to display
     lea dx,var
     mov ah,09h
     int 21h
